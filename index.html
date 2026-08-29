@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Growth Strategist & Commerce Specialist | Executive Portfolio</title>
+  <title>Alex Carter | B.Com & Digital Marketing Growth Strategist</title>
   
-  <!-- Google Fonts -->
+  <!-- Premium Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome Icons -->
+  <!-- FontAwesome Pro 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Stylesheet -->
+  <!-- Core Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Dynamic Interactive Particle Canvas Background -->
+  <!-- Dynamic Particle Canvas & Mouse Spotlight -->
   <canvas id="particleCanvas"></canvas>
   <div class="spotlight-cursor" id="spotlight"></div>
 
-  <!-- Master App Cockpit -->
+  <!-- Master Cockpit Wrapper (100vh Fixed Screen) -->
   <div class="cockpit-container">
 
     <!-- Top Command Header -->
     <header class="cockpit-header">
-      <div class="brand-badge">
+      <div class="brand-badge" onclick="window.navigateTo('overview')">
         <div class="brand-symbol">
           <i class="fa-solid fa-chart-line"></i>
         </div>
@@ -38,7 +38,7 @@
       </div>
 
       <!-- Floating Glass Navigation Dock -->
-      <nav class="dock-nav">
+      <nav class="dock-nav" id="dockNav">
         <button class="dock-btn active" data-page="overview">
           <i class="fa-solid fa-compass"></i>
           <span>Overview</span>
@@ -65,7 +65,7 @@
         </button>
       </nav>
 
-      <!-- Top-Right Actions: CTA & Profile Picture -->
+      <!-- Top-Right Actions & Glowing Profile Avatar -->
       <div class="header-right-group">
         <button class="btn btn-hologram btn-magnetic" onclick="window.navigateTo('contact')">
           <span class="beam"></span>
@@ -75,21 +75,21 @@
           </span>
         </button>
 
-        <!-- Profile Picture Component with Glowing Ring -->
-        <div class="profile-avatar-wrap" onclick="window.navigateTo('contact')" title="Alex Carter - Available for Hire">
+        <!-- Top-Right Profile Picture Component -->
+        <div class="profile-avatar-wrap" onclick="window.navigateTo('contact')" title="Alex Carter - Available for Strategy Roles">
           <div class="avatar-glow-ring"></div>
-          <!-- You can replace this image URL with your own photo (e.g. "my-photo.jpg") -->
           <img 
             src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" 
             alt="Alex Carter Profile" 
-            class="profile-avatar-img" 
+            class="profile-avatar-img"
+            onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=growth'"
           />
           <span class="avatar-online-dot"></span>
         </div>
       </div>
     </header>
 
-    <!-- Main Screen Stage -->
+    <!-- Main Screen Stage (Zero-Scroll Page Panes) -->
     <main class="cockpit-stage">
 
       <!-- ================= PAGE 1: OVERVIEW ================= -->
@@ -106,7 +106,7 @@
             </h1>
             
             <p class="hero-description">
-              I don't just generate clicks—I maximize <strong>Return on Ad Spend (ROAS)</strong>, scale organic SEO traffic, and optimize unit margins using rigorous <strong>B.Com commercial accounting & analytics</strong>.
+              I combine <strong>B.Com Business Strategy</strong> with <strong>Paid Media & SEO</strong> to maximize Return on Ad Spend (ROAS), lower Customer Acquisition Cost (CAC), and protect net unit profit margins.
             </p>
 
             <div class="terminal-ticker">
@@ -125,7 +125,7 @@
               </button>
               <button class="btn btn-glass btn-magnetic" onclick="window.navigateTo('skills')">
                 <i class="fa-solid fa-layer-group"></i>
-                <span>Explore Skills</span>
+                <span>Explore Arsenal</span>
               </button>
               <button class="btn btn-outline btn-magnetic" onclick="window.navigateTo('case-studies')">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -159,7 +159,7 @@
               <div class="metric-row">
                 <div class="metric-icon-wrap icon-gold"><i class="fa-solid fa-bullseye"></i></div>
                 <div>
-                  <h2 class="counter" data-target="35">0</h2><span class="metric-sym">%+</span>
+                  <h2 class="counter" data-target="38">0</h2><span class="metric-sym">%-</span>
                   <p>Average CPA Reduction</p>
                 </div>
               </div>
@@ -175,7 +175,7 @@
           <div class="section-titlebar">
             <span class="sub-badge">TACTICAL COMPETENCIES</span>
             <h2>Digital Marketing & Paid Acquisition Stack</h2>
-            <p>End-to-end management of paid channels, conversion funnels, and organic search.</p>
+            <p>End-to-end management of paid channels, conversion funnels, and organic search ranking.</p>
           </div>
 
           <div class="cards-grid-3">
@@ -252,13 +252,13 @@
             <h2>Bachelor of Commerce (B.Com General)</h2>
             <p class="degree-highlight">Commercial Acumen • Corporate Finance • Unit Economics</p>
             <p class="degree-text">
-              Marketing without financial discipline is just guesswork. My B.Com background ensures every rupee/dollar spent on campaigns is modeled for <strong>Gross Margin Contribution, Customer Acquisition Cost (CAC), and Lifetime Value (LTV)</strong>.
+              Marketing without financial discipline is just guesswork. My B.Com background ensures every marketing campaign is audited for <strong>Gross Margin Contribution, Customer Acquisition Cost (CAC), and Lifetime Value (LTV)</strong>.
             </p>
             
             <div class="commerce-checks">
-              <div><i class="fa-solid fa-circle-check"></i> Financial Statement & Cost Analysis</div>
-              <div><i class="fa-solid fa-circle-check"></i> Market Equilibrium & Elasticity Analysis</div>
-              <div><i class="fa-solid fa-circle-check"></i> Profit Margin & Break-Even Optimization</div>
+              <div><i class="fa-solid fa-circle-check"></i> Financial Accounting & Budgetary Control</div>
+              <div><i class="fa-solid fa-circle-check"></i> Market Equilibrium & Price Elasticity Modeling</div>
+              <div><i class="fa-solid fa-circle-check"></i> Net Profit & Break-Even Optimization</div>
             </div>
           </div>
 
@@ -363,7 +363,7 @@
           </div>
 
           <div class="cards-grid-3">
-            <div class="case-card">
+            <div class="case-card" onclick="window.openCaseModal('ecommerce')">
               <div class="case-badge">E-COMMERCE SCALE</div>
               <h3>D2C Apparel Brand Scaling</h3>
               <p>Re-architected Meta Ads creative angles and installed abandoned cart flows to scale monthly revenue with strict ROAS protection.</p>
@@ -377,7 +377,7 @@
               <div class="tag-row"><span>Meta Ads</span><span>Klaviyo</span><span>A/B Angles</span></div>
             </div>
 
-            <div class="case-card">
+            <div class="case-card" onclick="window.openCaseModal('ppc')">
               <div class="case-badge">B2B LEAD ACQUISITION</div>
               <h3>High-Intent Google PPC Sprint</h3>
               <p>Eliminated 62% wasted search spend using strict phrase-match negative keyword lists and high-converting single-page landing funnels.</p>
@@ -391,7 +391,7 @@
               <div class="tag-row"><span>Google Search</span><span>Negative Keywords</span><span>CRO</span></div>
             </div>
 
-            <div class="case-card">
+            <div class="case-card" onclick="window.openCaseModal('seo')">
               <div class="case-badge">ORGANIC SEO DOMINANCE</div>
               <h3>Search Authority & Ranking Boost</h3>
               <p>Executed competitor gap analysis, targeted high-intent commercial keywords, and optimized page speed to capture page #1 rankings.</p>
@@ -442,21 +442,21 @@
             </div>
           </div>
 
-          <form class="terminal-form" onsubmit="event.preventDefault(); alert('Inquiry Transmitted! I will review your targets and connect within 24 hours.');">
+          <form class="terminal-form" id="contactForm" onsubmit="event.preventDefault(); window.handleFormSubmit();">
             <div class="form-grid-2">
               <div class="field-box">
                 <label>Your Name / Organization</label>
-                <input type="text" placeholder="e.g. John Doe / Apex Corp" required />
+                <input type="text" id="formName" placeholder="e.g. John Doe / Apex Corp" required />
               </div>
               <div class="field-box">
                 <label>Business Email</label>
-                <input type="email" placeholder="john@apexcorp.com" required />
+                <input type="email" id="formEmail" placeholder="john@apexcorp.com" required />
               </div>
             </div>
 
             <div class="field-box">
               <label>Core Marketing Goal</label>
-              <select>
+              <select id="formGoal">
                 <option>Scale Paid Ads (Google & Meta PPC)</option>
                 <option>Full-Funnel SEO & Organic Search Growth</option>
                 <option>Conversion Rate Optimization (CRO)</option>
@@ -466,7 +466,7 @@
 
             <div class="field-box">
               <label>Monthly Marketing Budget / Strategy Scope</label>
-              <textarea rows="3" placeholder="Detail your target metrics, timeline, or current bottlenecks..."></textarea>
+              <textarea id="formMessage" rows="3" placeholder="Detail your target metrics, timeline, or current bottlenecks..."></textarea>
             </div>
 
             <button type="submit" class="btn btn-hologram btn-magnetic btn-submit">
@@ -490,13 +490,21 @@
         <span>SYSTEM OPERATIONAL • B.COM GENERAL • CERTIFIED DIGITAL MARKETER</span>
       </div>
       <div class="telemetry-right">
-        <span>© <span id="currentYear"></span> ALEX CARTER</span>
+        <span id="liveClock">00:00:00 UTC</span> • <span>© <span id="currentYear"></span> ALEX CARTER</span>
       </div>
     </footer>
 
   </div>
 
-  <!-- Script File -->
+  <!-- Interactive Case Study Modal -->
+  <div class="modal-backdrop" id="caseModal" onclick="window.closeCaseModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="window.closeCaseModal()"><i class="fa-solid fa-xmark"></i></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Core JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
