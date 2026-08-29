@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growth Developer & Digital Strategist | Portfolio</title>
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- DevIcon & FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cyber Grid Background & Glows -->
+  <div class="cyber-grid"></div>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Interactive Spotlight Follower -->
+  <div class="cursor-spotlight" id="spotlight"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="#hero" class="brand-logo">
+      <span class="logo-icon"><i class="fa-solid fa-chart-line"></i></span>
+      <span>DEV<span class="highlight">MARKETER</span></span>
+    </a>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Tech & Marketing Stack</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#journey" class="nav-link">Education & Credentials</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#contact" class="btn btn-magnetic btn-nav">
+        <span>Get in Touch</span>
+        <i class="fa-solid fa-bolt"></i>
+      </a>
+      <button class="mobile-toggle" id="mobileToggle">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-container">
+        
+        <div class="status-badge">
+          <span class="pulse-dot"></span>
+          <span>Open for High-Impact Roles & Freelance Projects</span>
+        </div>
+
+        <h1 class="hero-title">
+          I Build <span class="gradient-text">Fast Web Apps</span> & Drive <br>
+          <span class="gradient-text-alt">Revenue-Focused</span> Digital Growth.
+        </h1>
+
+        <p class="hero-subtitle">
+          Merging <strong>B.Com Business Strategy</strong>, <strong>Full-Stack Development</strong>, and <strong>Certified Digital Marketing</strong> to engineer fast, SEO-dominant, high-converting platforms.
+        </p>
+
+        <!-- Dynamic Typing Subheading -->
+        <div class="typing-box">
+          <span class="console-prompt">$ specialization = </span>
+          <span class="typing-text" id="typingText"></span>
+          <span class="cursor-blink">|</span>
+        </div>
+
+        <!-- Super-Tier Multi-Level Button Interactions -->
+        <div class="hero-actions">
+          <!-- Button 1: Beam Light Dynamic Glow -->
+          <a href="#projects" class="btn btn-beam btn-magnetic">
+            <span class="beam-border"></span>
+            <span class="btn-inner">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>View Projects</span>
+            </span>
+          </a>
+
+          <!-- Button 2: Cyber Glass Gradient -->
+          <a href="#skills" class="btn btn-cyber btn-magnetic">
+            <span class="btn-inner">
+              <i class="fa-solid fa-bullseye"></i>
+              <span>Skills Matrix</span>
+            </span>
+          </a>
+
+          <!-- Button 3: Liquid Outline Shift -->
+          <a href="https://github.com" target="_blank" class="btn btn-liquid btn-magnetic">
+            <span class="btn-inner">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <h3 class="counter" data-target="100">0</h3><span class="unit">%</span>
+            <p>SEO & Speed Score Focus</p>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <h3 class="counter" data-target="3">0</h3><span class="unit">x</span>
+            <p>Average Conversion Lift</p>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <h3 class="counter" data-target="25">0</h3><span class="unit">+</span>
+            <p>Campaigns & Projects Built</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills Matrix Section (Dev + Marketing + Commerce) -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <span class="badge-tag">Versatile Toolkit</span>
+        <h2 class="section-heading">Full-Stack Tech & Growth Stack</h2>
+        <p class="section-desc">A complete blend of modern programming, paid acquisition, conversion optimization, and commercial analytics.</p>
+      </div>
+
+      <div class="skills-categories">
+        <!-- Category 1: Web Development -->
+        <div class="skill-category-box">
+          <div class="category-header">
+            <i class="fa-solid fa-code cat-icon"></i>
+            <h3>Web Development</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-pill"><i class="devicon-javascript-plain colored"></i> <span>JavaScript (ES6+)</span></div>
+            <div class="skill-pill"><i class="devicon-react-original colored"></i> <span>React.js</span></div>
+            <div class="skill-pill"><i class="devicon-html5-plain colored"></i> <span>HTML5 / Semantic UI</span></div>
+            <div class="skill-pill"><i class="devicon-css3-plain colored"></i> <span>CSS3 / SASS / Flexbox</span></div>
+            <div class="skill-pill"><i class="devicon-tailwindcss-plain colored"></i> <span>Tailwind CSS</span></div>
+            <div class="skill-pill"><i class="devicon-nodejs-plain colored"></i> <span>Node.js / Express</span></div>
+            <div class="skill-pill"><i class="devicon-git-plain colored"></i> <span>Git & GitHub</span></div>
+            <div class="skill-pill"><i class="devicon-wordpress-plain colored"></i> <span>WordPress & CMS</span></div>
+          </div>
+        </div>
+
+        <!-- Category 2: Certified Digital Marketing -->
+        <div class="skill-category-box">
+          <div class="category-header">
+            <i class="fa-solid fa-bullhorn cat-icon"></i>
+            <h3>Digital Marketing & CRO</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-pill"><i class="devicon-google-plain colored"></i> <span>SEO (Technical & On-Page)</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-magnifying-glass-chart icon-gold"></i> <span>Google Ads (PPC)</span></div>
+            <div class="skill-pill"><i class="fa-brands fa-meta icon-blue"></i> <span>Meta Ads (FB & IG)</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-filter-circle-dollar icon-purple"></i> <span>Sales Funnel Design</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-envelope-open-text icon-cyan"></i> <span>Email Marketing & Auto</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-arrow-trend-up icon-green"></i> <span>Conversion Rate Opt (CRO)</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-key icon-yellow"></i> <span>Keyword & Competitor Res.</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-pen-nib icon-pink"></i> <span>Copywriting & Ads Creative</span></div>
+          </div>
+        </div>
+
+        <!-- Category 3: B.Com & Commercial Analytics -->
+        <div class="skill-category-box">
+          <div class="category-header">
+            <i class="fa-solid fa-chart-pie cat-icon"></i>
+            <h3>Analytics & Commerce (B.Com)</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-pill"><i class="fa-solid fa-chart-simple icon-orange"></i> <span>Google Analytics 4 (GA4)</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-tags icon-teal"></i> <span>Google Tag Manager</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-file-invoice-dollar icon-green"></i> <span>Financial & ROI Modeling</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-cart-shopping icon-yellow"></i> <span>E-Commerce Operations</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-table icon-blue"></i> <span>MS Excel / Data Sheets</span></div>
+            <div class="skill-pill"><i class="fa-solid fa-scale-balanced icon-indigo"></i> <span>Cost Analysis & Budgets</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filterable Projects Section -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <span class="badge-tag">Case Studies</span>
+        <h2 class="section-heading">Featured Projects & Campaigns</h2>
+        <p class="section-desc">Where clean code meets real commercial performance and lead generation.</p>
+      </div>
+
+      <!-- Project Filter Buttons -->
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="dev">Web Apps</button>
+        <button class="filter-btn" data-filter="marketing">Growth & Funnels</button>
+        <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: High Converting E-commerce -->
+        <div class="project-card" data-category="ecommerce dev">
+          <div class="project-banner">
+            <div class="banner-badge">E-Commerce + CRO</div>
+            <i class="fa-solid fa-bag-shopping banner-icon"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-techs">
+              <span>React</span>
+              <span>Tailwind</span>
+              <span>Stripe</span>
+              <span>GA4 Tracked</span>
+            </div>
+            <h3 class="project-title">Direct-to-Consumer Brand Store</h3>
+            <p class="project-desc">
+              Custom fast-loading store built with sub-second checkout, optimized upsell funnels, and automated abandoned cart tracking.
+            </p>
+            <div class="project-kpi">
+              <i class="fa-solid fa-arrow-trend-up"></i> +42% Average Order Value Boost
+            </div>
+            <div class="card-links">
+              <a href="#" class="btn btn-sm btn-beam"><span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="#" class="btn btn-sm btn-cyber"><i class="fa-brands fa-github"></i> <span>Code</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: High Conversion Lead-Gen Landing Page -->
+        <div class="project-card" data-category="marketing dev">
+          <div class="project-banner">
+            <div class="banner-badge">Lead Gen & SEO</div>
+            <i class="fa-solid fa-rocket banner-icon"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-techs">
+              <span>Next.js</span>
+              <span>Technical SEO</span>
+              <span>Meta Pixel</span>
+              <span>Form Automation</span>
+            </div>
+            <h3 class="project-title">SaaS Lead Generation Funnel</h3>
+            <p class="project-desc">
+              High-converting responsive landing page scoring 100/100 on Google PageSpeed with A/B copy tests and dynamic UTM tag capturing.
+            </p>
+            <div class="project-kpi">
+              <i class="fa-solid fa-bolt"></i> 18.4% Cold Traffic Conversion Rate
+            </div>
+            <div class="card-links">
+              <a href="#" class="btn btn-sm btn-beam"><span>View Funnel</span> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="#" class="btn btn-sm btn-cyber"><i class="fa-brands fa-github"></i> <span>Code</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Marketing Analytics Dashboard -->
+        <div class="project-card" data-category="dev marketing">
+          <div class="project-banner">
+            <div class="banner-badge">Web App & Analytics</div>
+            <i class="fa-solid fa-chart-line banner-icon"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-techs">
+              <span>JavaScript</span>
+              <span>Chart.js</span>
+              <span>REST API</span>
+              <span>B.Com Financial Logic</span>
+            </div>
+            <h3 class="project-title">Ad Campaign ROI Calculator</h3>
+            <p class="project-desc">
+              Web app for marketing teams to model ROAS, Customer Acquisition Cost (CAC), Lifetime Value (LTV), and break-even ad expenditures.
+            </p>
+            <div class="project-kpi">
+              <i class="fa-solid fa-calculator"></i> Real-Time Multi-Currency Engine
+            </div>
+            <div class="card-links">
+              <a href="#" class="btn btn-sm btn-beam"><span>Launch Tool</span> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="#" class="btn btn-sm btn-cyber"><i class="fa-brands fa-github"></i> <span>Code</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Credentials Section (Highlighting B.Com + Marketing) -->
+    <section id="journey" class="section">
+      <div class="section-header">
+        <span class="badge-tag">My Foundation</span>
+        <h2 class="section-heading">Education & Professional Track</h2>
+        <p class="section-desc">How my commercial mindset, marketing skills, and coding abilities synergize.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- 1. B.Com -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-year">Academic Degree</span>
+            <h3 class="timeline-title">Bachelor of Commerce (B.Com General)</h3>
+            <p class="timeline-text">
+              Mastered foundational business economics, commercial accounts, consumer behavior, market dynamics, and corporate finance. This enables me to write code that aligns with real business profitability.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. Digital Marketing Certification -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fa-solid fa-award"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-year">Professional Certification</span>
+            <h3 class="timeline-title">Certified Digital Marketing Specialist</h3>
+            <p class="timeline-text">
+              Completed advanced training covering Search Engine Optimization (SEO), Paid Ads (Google Search, Display & Meta Ads Manager), Content Architecture, Funnels, and GA4 Analytics.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3. Web Developer Transition -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fa-solid fa-code"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-year">Technical Specialization</span>
+            <h3 class="timeline-title">Full-Stack Web Development & Growth Engineering</h3>
+            <p class="timeline-text">
+              Engineered responsive frontend & backend web applications, customized CMS solutions, and speed-optimized landing pages designed for maximal user retention and sales conversion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- High Impact Contact Section -->
+    <section id="contact" class="section">
+      <div class="contact-box">
+        <div class="contact-header">
+          <span class="badge-tag">Let's Build & Grow</span>
+          <h2>Have a Project or Growth Goal?</h2>
+          <p>Whether you need a full website created, your web apps optimized for conversions, or custom business software—let's talk.</p>
+          
+          <div class="direct-channels">
+            <div class="channel-card">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <h4>Direct Email</h4>
+                <span>yourname.business@gmail.com</span>
+              </div>
+            </div>
+            <div class="channel-card">
+              <i class="fa-brands fa-whatsapp"></i>
+              <div>
+                <h4>WhatsApp / Instant Chat</h4>
+                <span>Available for Business Queries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="growth-form" onsubmit="event.preventDefault(); alert('Message dispatched! I will respond within 24 hours.');">
+          <div class="input-row">
+            <div class="form-field">
+              <label>Your Name</label>
+              <input type="text" placeholder="e.g. Sarah Jenkins" required />
+            </div>
+            <div class="form-field">
+              <label>Your Email</label>
+              <input type="email" placeholder="e.g. sarah@company.com" required />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label>Project Objective</label>
+            <select>
+              <option>Build a Custom Web Application / Website</option>
+              <option>SEO & Conversion Rate Optimization (CRO)</option>
+              <option>E-Commerce Store Development</option>
+              <option>Full-Time / Contract Hire</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label>Project Details</label>
+            <textarea rows="4" placeholder="Briefly describe your goals, budget, or timeline..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-beam btn-submit btn-magnetic">
+            <span class="btn-inner">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> | Designed with Clean Architecture & Commercial Precision.</p>
+    <div class="social-links">
+      <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="mailto:yourname.business@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
