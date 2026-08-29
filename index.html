@@ -3,351 +3,481 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Growth Marketer & Commerce Strategist | Portfolio</title>
+  <title>Growth Strategist & Commerce Specialist | Executive Portfolio</title>
   
-  <!-- Premium Fonts -->
+  <!-- Elite Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome Icons for Marketing & Commerce -->
+  <!-- FontAwesome Pro Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Cyber Glow Ambient Orbs -->
-  <div class="glow-orb orb-primary"></div>
-  <div class="glow-orb orb-secondary"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
+  <!-- Dynamic Interactive Particle Canvas Background -->
+  <canvas id="particleCanvas"></canvas>
+  <div class="spotlight-cursor" id="spotlight"></div>
 
-  <!-- Main Viewport Container (Fixed 100vh, No Page Scrolling) -->
-  <div class="app-wrapper">
+  <!-- Master App Cockpit (100vh Fixed Screen) -->
+  <div class="cockpit-container">
 
-    <!-- Top Navigation Tabs -->
-    <header class="navbar">
-      <div class="brand">
-        <div class="brand-icon"><i class="fa-solid fa-chart-pie"></i></div>
-        <div class="brand-text">
-          <span>COMMERCE<span class="highlight">&GROWTH</span></span>
-          <small>B.Com • Digital Marketer</small>
+    <!-- Top Command Header -->
+    <header class="cockpit-header">
+      <div class="brand-badge">
+        <div class="brand-symbol">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <div class="brand-info">
+          <h3>ALEX CARTER</h3>
+          <p><span class="dot-live"></span> B.COM • PERFORMANCE MARKETER</p>
         </div>
       </div>
 
-      <nav class="nav-tabs">
-        <button class="nav-tab active" data-target="home">
-          <i class="fa-solid fa-house"></i>
+      <!-- Floating Glass Navigation Dock -->
+      <nav class="dock-nav">
+        <button class="dock-btn active" data-page="overview">
+          <i class="fa-solid fa-compass"></i>
           <span>Overview</span>
         </button>
-        <button class="nav-tab" data-target="marketing">
-          <i class="fa-solid fa-bullhorn"></i>
-          <span>Digital Marketing</span>
+        <button class="dock-btn" data-page="skills">
+          <i class="fa-solid fa-bullseye"></i>
+          <span>Marketing Arsenal</span>
         </button>
-        <button class="nav-tab" data-target="commerce">
+        <button class="dock-btn" data-page="commerce">
           <i class="fa-solid fa-scale-balanced"></i>
-          <span>B.Com & Analytics</span>
+          <span>B.Com & Financials</span>
         </button>
-        <button class="nav-tab" data-target="campaigns">
+        <button class="dock-btn" data-page="calculator">
+          <i class="fa-solid fa-calculator"></i>
+          <span>ROI Simulator</span>
+        </button>
+        <button class="dock-btn" data-page="case-studies">
           <i class="fa-solid fa-trophy"></i>
-          <span>Campaigns</span>
+          <span>Case Studies</span>
         </button>
-        <button class="nav-tab" data-target="contact">
-          <i class="fa-solid fa-paper-plane"></i>
+        <button class="dock-btn" data-page="contact">
+          <i class="fa-solid fa-envelope"></i>
           <span>Hire Me</span>
         </button>
       </nav>
 
-      <button class="btn btn-beam nav-cta" onclick="switchTab('contact')">
-        <span class="btn-inner">
-          <i class="fa-solid fa-bolt"></i>
-          <span>Let's Connect</span>
-        </span>
-      </button>
+      <div class="header-cta">
+        <button class="btn btn-hologram btn-magnetic" onclick="navigateTo('contact')">
+          <span class="beam"></span>
+          <span class="btn-content">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Schedule Briefing</span>
+          </span>
+        </button>
+      </div>
     </header>
 
-    <!-- App Stage (All Pages Transition Within This Box) -->
-    <main class="stage-container">
+    <!-- Main Screen Stage -->
+    <main class="cockpit-stage">
 
       <!-- ================= PAGE 1: OVERVIEW ================= -->
-      <section class="page-pane active" id="page-home">
-        <div class="pane-content hero-grid">
-          <div class="hero-text">
-            <div class="status-pill">
-              <span class="status-dot"></span> Certified Digital Marketer & B.Com Graduate
+      <section class="stage-view active" id="view-overview">
+        <div class="view-grid hero-layout">
+          
+          <div class="hero-primary">
+            <div class="cyber-badge">
+              <i class="fa-solid fa-shield-halved"></i> COMMERCE DISCIPLINE × PERFORMANCE GROWTH
             </div>
-            <h1 class="hero-title">
-              Driving <span class="gradient-text">High-ROI</span> Campaigns With 
-              <span class="gradient-text-alt">Commercial</span> Acumen.
+            
+            <h1 class="hero-heading">
+              Engineering <span class="gradient-text">Profitable Revenue</span> Through Data-Driven Marketing.
             </h1>
-            <p class="hero-desc">
-              I combine <strong>B.Com Business Strategy</strong> with <strong>Performance Marketing</strong> to scale brands through Google Ads, Meta Ads, SEO optimization, and data-backed ROI analytics.
+            
+            <p class="hero-description">
+              I don't just generate clicks—I maximize <strong>Return on Ad Spend (ROAS)</strong>, scale organic SEO traffic, and optimize unit margins using rigorous <strong>B.Com commercial accounting & analytics</strong>.
             </p>
 
-            <div class="typing-banner">
-              <span class="prompt"><i class="fa-solid fa-circle-check"></i> Expertise: </span>
-              <span class="typing-text" id="typingText"></span>
+            <div class="terminal-ticker">
+              <span class="ticker-label"><i class="fa-solid fa-terminal"></i> Focus:</span>
+              <span class="ticker-text" id="tickerText"></span>
+              <span class="cursor-pipe">_</span>
             </div>
 
             <div class="hero-actions">
-              <button class="btn btn-beam" onclick="switchTab('campaigns')">
-                <span class="btn-inner">
-                  <i class="fa-solid fa-chart-line"></i>
-                  <span>Explore Campaigns</span>
+              <button class="btn btn-hologram btn-magnetic" onclick="navigateTo('calculator')">
+                <span class="beam"></span>
+                <span class="btn-content">
+                  <i class="fa-solid fa-sliders"></i>
+                  <span>Test ROI Simulator</span>
                 </span>
               </button>
-              <button class="btn btn-cyber" onclick="switchTab('marketing')">
-                <i class="fa-solid fa-bullseye"></i>
-                <span>Marketing Skills</span>
+              <button class="btn btn-glass btn-magnetic" onclick="navigateTo('skills')">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Explore Skills</span>
               </button>
-              <button class="btn btn-liquid" onclick="switchTab('contact')">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Get in Touch</span>
+              <button class="btn btn-outline btn-magnetic" onclick="navigateTo('case-studies')">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>View Results</span>
               </button>
             </div>
           </div>
 
-          <div class="hero-stats-panel">
-            <div class="stat-box">
-              <i class="fa-solid fa-arrow-trend-up stat-icon icon-green"></i>
-              <h3 class="stat-num" data-target="4">0</h3><span class="plus">x+</span>
-              <p>Average ROAS Delivered</p>
+          <div class="hero-secondary">
+            <div class="metric-glass-card">
+              <div class="metric-row">
+                <div class="metric-icon-wrap icon-emerald"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                <div>
+                  <h2 class="counter" data-target="4.8">0</h2><span class="metric-sym">x</span>
+                  <p>Peak Target ROAS Delivered</p>
+                </div>
+              </div>
             </div>
-            <div class="stat-box">
-              <i class="fa-solid fa-magnifying-glass-chart stat-icon icon-cyan"></i>
-              <h3 class="stat-num" data-target="98">0</h3><span class="plus">%</span>
-              <p>Search SEO Optimization</p>
+
+            <div class="metric-glass-card">
+              <div class="metric-row">
+                <div class="metric-icon-wrap icon-cyan"><i class="fa-solid fa-chart-pie"></i></div>
+                <div>
+                  <h2 class="counter" data-target="100">0</h2><span class="metric-sym">%</span>
+                  <p>Budget & CAC Attribution Control</p>
+                </div>
+              </div>
             </div>
-            <div class="stat-box">
-              <i class="fa-solid fa-hand-holding-dollar stat-icon icon-gold"></i>
-              <h3 class="stat-num" data-target="100">0</h3><span class="plus">%</span>
-              <p>Budget & Cost Control</p>
+
+            <div class="metric-glass-card">
+              <div class="metric-row">
+                <div class="metric-icon-wrap icon-gold"><i class="fa-solid fa-bullseye"></i></div>
+                <div>
+                  <h2 class="counter" data-target="35">0</h2><span class="metric-sym">%+</span>
+                  <p>Average CPA Reduction</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= PAGE 2: MARKETING ARSENAL ================= -->
+      <section class="stage-view" id="view-skills">
+        <div class="view-grid">
+          <div class="section-titlebar">
+            <span class="sub-badge">TACTICAL COMPETENCIES</span>
+            <h2>Digital Marketing & Paid Acquisition Stack</h2>
+            <p>End-to-end management of paid channels, conversion funnels, and organic search.</p>
+          </div>
+
+          <div class="cards-grid-3">
+            <div class="tactical-card">
+              <div class="card-head">
+                <i class="fa-brands fa-google brand-icon icon-gold"></i>
+                <span class="level-pill">Expert</span>
+              </div>
+              <h3>Google Ads (Search, Display, PMax)</h3>
+              <p>Intent-driven search ads, negative keyword architectures, bidding optimization, and Shopping feed management.</p>
+              <div class="tag-row"><span>High CTR</span><span>PPC</span><span>Cost Optimization</span></div>
+            </div>
+
+            <div class="tactical-card">
+              <div class="card-head">
+                <i class="fa-brands fa-meta brand-icon icon-blue"></i>
+                <span class="level-pill">Advanced</span>
+              </div>
+              <h3>Meta Ads (Facebook & Instagram)</h3>
+              <p>Cold prospecting, lookalike creation, creative fatigue rotation, and multi-touch retargeting funnels.</p>
+              <div class="tag-row"><span>Pixel Tracking</span><span>Ad Creative</span><span>CBO / ABO</span></div>
+            </div>
+
+            <div class="tactical-card">
+              <div class="card-head">
+                <i class="fa-solid fa-magnifying-glass-chart brand-icon icon-cyan"></i>
+                <span class="level-pill">Mastery</span>
+              </div>
+              <h3>Organic Search Strategy (SEO)</h3>
+              <p>Commercial keyword intent mapping, technical audit remediation, metadata structuring, and rank acceleration.</p>
+              <div class="tag-row"><span>On-Page</span><span>Technical SEO</span><span>Search Volume</span></div>
+            </div>
+
+            <div class="tactical-card">
+              <div class="card-head">
+                <i class="fa-solid fa-filter-circle-dollar brand-icon icon-purple"></i>
+                <span class="level-pill">Specialist</span>
+              </div>
+              <h3>Conversion Rate Optimization (CRO)</h3>
+              <p>Landing page hierarchy analysis, friction reduction, value-proposition A/B testing, and checkout optimization.</p>
+              <div class="tag-row"><span>A/B Tests</span><span>Heatmaps</span><span>Copywriting</span></div>
+            </div>
+
+            <div class="tactical-card">
+              <div class="card-head">
+                <i class="fa-solid fa-envelope-open-text brand-icon icon-pink"></i>
+                <span class="level-pill">Advanced</span>
+              </div>
+              <h3>Email & Retention Funnels</h3>
+              <p>Automated welcome series, abandoned cart triggers, win-back flows, and customer lifecycle LTV expansion.</p>
+              <div class="tag-row"><span>Klaviyo / Mailchimp</span><span>Drip Flows</span><span>Open Rates</span></div>
+            </div>
+
+            <div class="tactical-card">
+              <div class="card-head">
+                <i class="fa-solid fa-hashtag brand-icon icon-emerald"></i>
+                <span class="level-pill">Specialist</span>
+              </div>
+              <h3>Social Media Growth & Content</h3>
+              <p>Audience positioning, content calendar architecture, engagement hooks, and brand authority building.</p>
+              <div class="tag-row"><span>Viral Hooks</span><span>Brand Equity</span><span>Engagement</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= PAGE 2: DIGITAL MARKETING SKILLS ================= -->
-      <section class="page-pane" id="page-marketing">
-        <div class="pane-content">
-          <div class="pane-header">
-            <span class="badge-tag">Certified Capabilities</span>
-            <h2>Digital Marketing & Performance Stack</h2>
-            <p>Targeted paid acquisition, organic reach, and conversion funnel strategies.</p>
-          </div>
-
-          <div class="skills-card-grid">
-            <div class="skill-tile">
-              <i class="fa-brands fa-google icon-gold skill-main-icon"></i>
-              <h4>Google Ads (PPC)</h4>
-              <p>Search, Display & Shopping campaigns optimized for minimum Cost-Per-Click.</p>
-              <div class="skill-meta"><span>PPC</span><span>Search Ads</span><span>Bidding</span></div>
-            </div>
-
-            <div class="skill-tile">
-              <i class="fa-brands fa-meta icon-blue skill-main-icon"></i>
-              <h4>Meta Ads Manager</h4>
-              <p>Audience targeting, lookalike sets, dynamic creatives across FB & Instagram.</p>
-              <div class="skill-meta"><span>Retargeting</span><span>Pixel Setup</span><span>ROAS</span></div>
-            </div>
-
-            <div class="skill-tile">
-              <i class="fa-solid fa-magnifying-glass-arrow-right icon-cyan skill-main-icon"></i>
-              <h4>Search Engine Opt. (SEO)</h4>
-              <p>Keyword research, on-page optimization, content strategy & ranking authority.</p>
-              <div class="skill-meta"><span>On-Page</span><span>Backlinks</span><span>Keyword Res.</span></div>
-            </div>
-
-            <div class="skill-tile">
-              <i class="fa-solid fa-filter-circle-dollar icon-purple skill-main-icon"></i>
-              <h4>Sales Funnels & CRO</h4>
-              <p>Landing page structure, conversion rate optimization, and A/B test variations.</p>
-              <div class="skill-meta"><span>A/B Testing</span><span>Copywriting</span><span>CRO</span></div>
-            </div>
-
-            <div class="skill-tile">
-              <i class="fa-solid fa-envelope-open-text icon-pink skill-main-icon"></i>
-              <h4>Email Marketing</h4>
-              <p>Customer lifecycle journeys, drip automated campaigns, and newsletter funnels.</p>
-              <div class="skill-meta"><span>Automation</span><span>Retention</span><span>Drip Flows</span></div>
-            </div>
-
-            <div class="skill-tile">
-              <i class="fa-solid fa-hashtag icon-green skill-main-icon"></i>
-              <h4>Social Media Marketing</h4>
-              <p>Brand positioning, content scheduling, viral hooks, and community outreach.</p>
-              <div class="skill-meta"><span>Engagement</span><span>Reach</span><span>Content Calendar</span></div>
+      <!-- ================= PAGE 3: B.COM & FINANCIALS ================= -->
+      <section class="stage-view" id="view-commerce">
+        <div class="view-grid commerce-layout-split">
+          
+          <div class="degree-hero-panel">
+            <div class="corner-glow"></div>
+            <div class="degree-badge-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <span class="sub-badge">ACADEMIC FOUNDATION</span>
+            <h2>Bachelor of Commerce (B.Com General)</h2>
+            <p class="degree-highlight">Commercial Acumen • Corporate Finance • Unit Economics</p>
+            <p class="degree-text">
+              Marketing without financial discipline is just guesswork. My B.Com background ensures every rupee/dollar spent on campaigns is modeled for <strong>Gross Margin Contribution, Customer Acquisition Cost (CAC), and Lifetime Value (LTV)</strong>.
+            </p>
+            
+            <div class="commerce-checks">
+              <div><i class="fa-solid fa-circle-check"></i> Financial Statement & Cost Analysis</div>
+              <div><i class="fa-solid fa-circle-check"></i> Market Equilibrium & Elasticity Analysis</div>
+              <div><i class="fa-solid fa-circle-check"></i> Profit Margin & Break-Even Optimization</div>
             </div>
           </div>
+
+          <div class="analytics-power-grid">
+            <div class="power-card">
+              <i class="fa-solid fa-chart-simple icon-orange"></i>
+              <div>
+                <h4>Google Analytics 4 (GA4)</h4>
+                <p>Event-level attribution, custom dimension tracking, and user conversion path analysis.</p>
+              </div>
+            </div>
+
+            <div class="power-card">
+              <i class="fa-solid fa-tags icon-cyan"></i>
+              <div>
+                <h4>Google Tag Manager (GTM)</h4>
+                <p>Server-side tag deployment, dynamic conversion value triggers, and custom event scripts.</p>
+              </div>
+            </div>
+
+            <div class="power-card">
+              <i class="fa-solid fa-file-excel icon-emerald"></i>
+              <div>
+                <h4>Advanced Financial Modeling (MS Excel)</h4>
+                <p>Pivot tables, XLOOKUP, campaign forecast models, and cohort retention spreadsheets.</p>
+              </div>
+            </div>
+
+            <div class="power-card">
+              <i class="fa-solid fa-calculator icon-gold"></i>
+              <div>
+                <h4>ROAS / POAS Accounting</h4>
+                <p>Profit On Ad Spend (POAS) modeling to safeguard net profits after COGS and ad costs.</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <!-- ================= PAGE 3: B.COM & ANALYTICS ================= -->
-      <section class="page-pane" id="page-commerce">
-        <div class="pane-content">
-          <div class="pane-header">
-            <span class="badge-tag">Academic Foundation & Analytics</span>
-            <h2>B.Com General & Business Analytics</h2>
-            <p>Financial accountability, unit economics, and data-driven marketing measurements.</p>
+      <!-- ================= PAGE 4: INTERACTIVE ROI SIMULATOR ================= -->
+      <section class="stage-view" id="view-calculator">
+        <div class="view-grid">
+          <div class="section-titlebar">
+            <span class="sub-badge">INTERACTIVE PROJECTION ENGINE</span>
+            <h2>Live Campaign ROAS & Profit Simulator</h2>
+            <p>Adjust the sliders below to calculate projected revenue, return on ad spend, and net gains.</p>
           </div>
 
-          <div class="commerce-layout">
-            <div class="degree-card">
-              <div class="degree-header">
-                <i class="fa-solid fa-graduation-cap deg-icon"></i>
-                <div>
-                  <h3>Bachelor of Commerce (B.Com General)</h3>
-                  <span>Commercial Foundations & Market Economics</span>
+          <div class="calculator-container">
+            <div class="calc-inputs">
+              <div class="calc-group">
+                <div class="calc-labels">
+                  <label>Monthly Ad Budget</label>
+                  <span class="calc-val" id="budgetDisplay">$5,000</span>
                 </div>
+                <input type="range" id="adBudget" min="1000" max="50000" step="500" value="5000" />
               </div>
-              <p class="deg-desc">
-                My commerce degree gives me a deep understanding of business profitability, balance sheets, unit margins, customer lifetime value (LTV), and marketing ROI calculation.
-              </p>
-              <ul class="deg-list">
-                <li><i class="fa-solid fa-check-double"></i> Financial Accounting & Cost Control</li>
-                <li><i class="fa-solid fa-check-double"></i> Market Research & Consumer Behavior</li>
-                <li><i class="fa-solid fa-check-double"></i> Business Budgeting & Commercial Planning</li>
-              </ul>
+
+              <div class="calc-group">
+                <div class="calc-labels">
+                  <label>Expected ROAS Multiplier</label>
+                  <span class="calc-val" id="roasDisplay">3.5x</span>
+                </div>
+                <input type="range" id="targetRoas" min="1.5" max="8.0" step="0.1" value="3.5" />
+              </div>
+
+              <div class="calc-group">
+                <div class="calc-labels">
+                  <label>Product / Service Gross Margin (%)</label>
+                  <span class="calc-val" id="marginDisplay">65%</span>
+                </div>
+                <input type="range" id="profitMargin" min="20" max="95" step="5" value="65" />
+              </div>
             </div>
 
-            <div class="analytics-grid">
-              <div class="stat-pill">
-                <i class="fa-solid fa-chart-simple icon-orange"></i>
-                <div>
-                  <strong>Google Analytics 4 (GA4)</strong>
-                  <span>Event tracking, user journey mapping, and conversion attribution.</span>
-                </div>
+            <div class="calc-results">
+              <div class="result-box">
+                <span>ESTIMATED GROSS REVENUE</span>
+                <h3 id="grossRevenue">$17,500</h3>
               </div>
-              <div class="stat-pill">
-                <i class="fa-solid fa-tags icon-teal"></i>
-                <div>
-                  <strong>Google Tag Manager (GTM)</strong>
-                  <span>Custom event tags, Meta Pixel events, and conversion scripts.</span>
-                </div>
+              <div class="result-box highlight-box">
+                <span>ESTIMATED NET CONTRIBUTION PROFIT</span>
+                <h3 id="netProfit">$6,375</h3>
               </div>
-              <div class="stat-pill">
-                <i class="fa-solid fa-file-excel icon-green"></i>
-                <div>
-                  <strong>Advanced MS Excel & Sheets</strong>
-                  <span>VLOOKUP, Pivot tables, campaign performance dashboards, and CAC modeling.</span>
-                </div>
-              </div>
-              <div class="stat-pill">
-                <i class="fa-solid fa-calculator icon-gold"></i>
-                <div>
-                  <strong>ROI & ROAS Calculations</strong>
-                  <span>Strict financial modeling to guarantee profitable customer acquisition.</span>
-                </div>
+              <div class="result-box">
+                <span>PROFIT-ON-AD-SPEND (POAS)</span>
+                <h3 id="poasMetric">1.28x</h3>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= PAGE 4: CAMPAIGNS ================= -->
-      <section class="page-pane" id="page-campaigns">
-        <div class="pane-content">
-          <div class="pane-header">
-            <span class="badge-tag">Proof of Work</span>
-            <h2>Featured Campaigns & Case Studies</h2>
-            <p>Real-world marketing frameworks designed for scalable lead acquisition and revenue.</p>
+      <!-- ================= PAGE 5: CASE STUDIES ================= -->
+      <section class="stage-view" id="view-case-studies">
+        <div class="view-grid">
+          <div class="section-titlebar">
+            <span class="sub-badge">PROVEN RESULTS</span>
+            <h2>Campaign Case Studies & Growth Playbooks</h2>
+            <p>Executed strategies showcasing real commercial impact and client acquisition.</p>
           </div>
 
-          <div class="campaigns-grid">
-            <div class="campaign-card">
-              <div class="camp-tag">Google Search PPC</div>
-              <h3>High-Intent Lead Gen Campaign</h3>
-              <p>Structured targeted search campaigns with exact-match negative keyword filtering and custom ad copy to lower cost per lead.</p>
-              <div class="camp-metric"><i class="fa-solid fa-arrow-down"></i> -38% Cost Per Acquisition (CPA)</div>
-              <div class="camp-footer"><span>Search Ads</span><span>High CTR</span><span>Landing Page CRO</span></div>
+          <div class="cards-grid-3">
+            <div class="case-card">
+              <div class="case-badge">E-COMMERCE SCALE</div>
+              <h3>D2C Apparel Brand Scaling</h3>
+              <p>Re-architected Meta Ads creative angles and installed abandoned cart flows to scale monthly revenue with strict ROAS protection.</p>
+              <div class="kpi-banner">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <div>
+                  <strong>4.2x ROAS</strong>
+                  <small>Delivered on $18k Ad Spend</small>
+                </div>
+              </div>
+              <div class="tag-row"><span>Meta Ads</span><span>Klaviyo</span><span>A/B Angles</span></div>
             </div>
 
-            <div class="campaign-card">
-              <div class="camp-tag">Meta Ads Funnel</div>
-              <h3>E-Commerce Retargeting Strategy</h3>
-              <p>Multi-tier video ads targeting top-of-funnel prospects with dynamic catalog retargeting for abandoned cart visitors.</p>
-              <div class="camp-metric"><i class="fa-solid fa-chart-line"></i> 4.6x Return on Ad Spend (ROAS)</div>
-              <div class="camp-footer"><span>Meta Pixel</span><span>Lookalikes</span><span>Offer Angle</span></div>
+            <div class="case-card">
+              <div class="case-badge">B2B LEAD ACQUISITION</div>
+              <h3>High-Intent Google PPC Sprint</h3>
+              <p>Eliminated 62% wasted search spend using strict phrase-match negative keyword lists and high-converting single-page landing funnels.</p>
+              <div class="kpi-banner">
+                <i class="fa-solid fa-arrow-down"></i>
+                <div>
+                  <strong>-44% Cost-Per-Lead</strong>
+                  <small>+118% Lead Quality Score</small>
+                </div>
+              </div>
+              <div class="tag-row"><span>Google Search</span><span>Negative Keywords</span><span>CRO</span></div>
             </div>
 
-            <div class="campaign-card">
-              <div class="camp-tag">Organic SEO</div>
-              <h3>Search Dominance & Ranking</h3>
-              <p>Identified high-volume low-competition commercial keywords and optimized metadata, resulting in explosive organic traffic.</p>
-              <div class="camp-metric"><i class="fa-solid fa-ranking-star"></i> #1 Page Rank for Key Commercial Terms</div>
-              <div class="camp-footer"><span>Keyword Res.</span><span>On-Page SEO</span><span>Search Intent</span></div>
+            <div class="case-card">
+              <div class="case-badge">ORGANIC SEO DOMINANCE</div>
+              <h3>Search Authority & Ranking Boost</h3>
+              <p>Executed competitor gap analysis, targeted high-intent commercial keywords, and optimized page speed to capture page #1 rankings.</p>
+              <div class="kpi-banner">
+                <i class="fa-solid fa-ranking-star"></i>
+                <div>
+                  <strong>+280% Organic Search</strong>
+                  <small>Zero Ad Spend Required</small>
+                </div>
+              </div>
+              <div class="tag-row"><span>Keyword Clustering</span><span>Technical SEO</span><span>Metadata</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= PAGE 5: CONTACT & HIRE ME ================= -->
-      <section class="page-pane" id="page-contact">
-        <div class="pane-content">
-          <div class="contact-card-wrap">
-            <div class="contact-left">
-              <span class="badge-tag">Let's Partner</span>
-              <h2>Ready to Scale Your Brand?</h2>
-              <p>Whether you need full-time marketing leadership, paid ad management, or revenue growth strategies—let's discuss your targets.</p>
-              
-              <div class="contact-points">
-                <div class="point-item">
-                  <i class="fa-solid fa-envelope"></i>
-                  <div>
-                    <small>Official Email</small>
-                    <p>yourname.marketer@gmail.com</p>
-                  </div>
+      <!-- ================= PAGE 6: HIRE ME & CONTACT ================= -->
+      <section class="stage-view" id="view-contact">
+        <div class="view-grid contact-layout-split">
+          
+          <div class="contact-card-info">
+            <span class="sub-badge">DIRECT LINE</span>
+            <h2>Let's Engineer Your Next Growth Phase.</h2>
+            <p>Available for full-time marketing leadership, strategy consultations, and paid media campaign scaling.</p>
+            
+            <div class="contact-links">
+              <div class="link-item">
+                <i class="fa-solid fa-envelope icon-cyan"></i>
+                <div>
+                  <small>Direct Email</small>
+                  <strong>alex.carter.growth@gmail.com</strong>
                 </div>
-                <div class="point-item">
-                  <i class="fa-brands fa-whatsapp"></i>
-                  <div>
-                    <small>Direct WhatsApp</small>
-                    <p>+91 (Direct Business Chat Available)</p>
-                  </div>
+              </div>
+              <div class="link-item">
+                <i class="fa-brands fa-whatsapp icon-emerald"></i>
+                <div>
+                  <small>Instant WhatsApp</small>
+                  <strong>Direct Business Line</strong>
                 </div>
-                <div class="point-item">
-                  <i class="fa-brands fa-linkedin"></i>
-                  <div>
-                    <small>LinkedIn Network</small>
-                    <p>linkedin.com/in/yourprofile</p>
-                  </div>
+              </div>
+              <div class="link-item">
+                <i class="fa-brands fa-linkedin icon-blue"></i>
+                <div>
+                  <small>LinkedIn Network</small>
+                  <strong>linkedin.com/in/alex-carter-growth</strong>
                 </div>
               </div>
             </div>
+          </div>
 
-            <form class="lead-form" onsubmit="event.preventDefault(); alert('Inquiry sent! I will review your business details and get back to you shortly.');">
-              <div class="form-row">
-                <input type="text" placeholder="Your Name / Company" required />
-                <input type="email" placeholder="Email Address" required />
+          <form class="terminal-form" onsubmit="event.preventDefault(); alert('Inquiry Transmitted! I will review your targets and connect within 24 hours.');">
+            <div class="form-grid-2">
+              <div class="field-box">
+                <label>Your Name / Organization</label>
+                <input type="text" placeholder="e.g. John Doe / Apex Corp" required />
               </div>
+              <div class="field-box">
+                <label>Business Email</label>
+                <input type="email" placeholder="john@apexcorp.com" required />
+              </div>
+            </div>
+
+            <div class="field-box">
+              <label>Core Marketing Goal</label>
               <select>
-                <option>Google & Meta Ads Management (PPC)</option>
-                <option>Complete SEO & Organic Ranking</option>
-                <option>Sales Funnel & Conversion Optimization</option>
-                <option>Full-Time Commerce & Marketing Role</option>
+                <option>Scale Paid Ads (Google & Meta PPC)</option>
+                <option>Full-Funnel SEO & Organic Search Growth</option>
+                <option>Conversion Rate Optimization (CRO)</option>
+                <option>Full-Time Growth / Commerce Role</option>
               </select>
-              <textarea rows="3" placeholder="Tell me about your marketing budget, current challenges, or goals..." required></textarea>
-              <button type="submit" class="btn btn-beam btn-full">
-                <span class="btn-inner">
-                  <span>Send Business Inquiry</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </span>
-              </button>
-            </form>
-          </div>
+            </div>
+
+            <div class="field-box">
+              <label>Monthly Marketing Budget / Strategy Scope</label>
+              <textarea rows="3" placeholder="Detail your target metrics, timeline, or current bottlenecks..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-hologram btn-magnetic btn-submit">
+              <span class="beam"></span>
+              <span class="btn-content">
+                <span>Transmit Business Inquiry</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </button>
+          </form>
+
         </div>
       </section>
 
     </main>
 
-    <!-- Bottom Status Bar -->
-    <footer class="app-statusbar">
-      <div class="statusbar-item">
-        <span class="pulse-indicator"></span> 
-        <span>Status: Available for Marketing Roles & Strategy Projects</span>
+    <!-- Cockpit Telemetry Footer -->
+    <footer class="cockpit-footer">
+      <div class="telemetry-left">
+        <span class="radar-dot"></span>
+        <span>SYSTEM OPERATIONAL • B.COM GRADUATE • CERTIFIED DIGITAL MARKETER</span>
       </div>
-      <div class="statusbar-item tags">
-        <span>B.Com General</span> • <span>Certified Digital Marketer</span> • <span>Performance Marketer</span>
+      <div class="telemetry-right">
+        <span>© <span id="currentYear"></span> ALEX CARTER</span>
       </div>
     </footer>
 
