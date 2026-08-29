@@ -1,689 +1,208 @@
-/* ==========================================================================
-   LUXURY CYBER-COMMERCE THEME & 100vh VIEWPORT SPECIFICATION
-   ========================================================================== */
-:root {
-  --bg-space: #05070c;
-  --bg-glass: rgba(13, 18, 30, 0.72);
-  --bg-glass-card: rgba(18, 25, 42, 0.65);
-  --bg-glass-active: rgba(26, 36, 60, 0.9);
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Current Year
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-  --neon-cyan: #00f2fe;
-  --neon-purple: #7928ca;
-  --neon-emerald: #10b981;
-  --neon-gold: #f59e0b;
-  --neon-blue: #3b82f6;
+  // 2. Interactive Background Particle Canvas
+  const canvas = document.getElementById("particleCanvas");
+  const ctx = canvas.getContext("2d");
+  let width, height;
+  let particles = [];
 
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-glow: rgba(0, 242, 254, 0.35);
+  function resizeCanvas() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
 
-  --text-pure: #ffffff;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.6;
+      this.vy = (Math.random() - 0.5) * 0.6;
+      this.radius = Math.random() * 1.6 + 0.8;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(0, 242, 254, 0.25)";
+      ctx.fill();
+    }
+  }
 
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  for (let i = 0; i < 45; i++) {
+    particles.push(new Particle());
+  }
 
-  --ease-elastic: cubic-bezier(0.19, 1, 0.22, 1);
-  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
-}
+  function animateParticles() {
+    ctx.clearRect(0, 0, width, height);
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  user-select: none;
-}
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
 
-html, body {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden; /* STRICT ZERO SCROLLING */
-  background-color: var(--bg-space);
-  color: var(--text-pure);
-  font-family: var(--font-sans);
-}
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
-/* Background Particle Canvas */
-#particleCanvas {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
+        if (dist < 110) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(0, 242, 254, ${0.12 - dist / 1100})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
 
-.spotlight-cursor {
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 65%);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  transition: transform 0.04s linear;
-}
+  // 3. Spotlight Mouse Follower
+  const spotlight = document.getElementById("spotlight");
+  window.addEventListener("mousemove", (e) => {
+    spotlight.style.left = `${e.clientX}px`;
+    spotlight.style.top = `${e.clientY}px`;
+  });
 
-/* Master Cockpit Layout */
-.cockpit-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 16px 30px;
-  z-index: 1;
-}
+  // 4. Tab / Page Navigation Engine (100vh Zero-Scroll)
+  window.navigateTo = function (pageName) {
+    const dockBtns = document.querySelectorAll(".dock-btn");
+    dockBtns.forEach((btn) => {
+      if (btn.getAttribute("data-page") === pageName) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
 
-/* ==========================================================================
-   HEADER & FLOATING GLASS DOCK
-   ========================================================================== */
-.cockpit-header {
-  height: 64px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
+    const views = document.querySelectorAll(".stage-view");
+    views.forEach((view) => {
+      if (view.id === `view-${pageName}`) {
+        view.classList.add("active");
+      } else {
+        view.classList.remove("active");
+      }
+    });
+  };
 
-.brand-badge {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.brand-symbol {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  font-size: 1.1rem;
-  color: #fff;
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-}
-.brand-info h3 {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  letter-spacing: 0.5px;
-}
-.brand-info p {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-}
-.dot-live {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: var(--neon-emerald);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--neon-emerald);
-  margin-right: 4px;
-}
+  const dockBtns = document.querySelectorAll(".dock-btn");
+  dockBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const page = btn.getAttribute("data-page");
+      navigateTo(page);
+    });
+  });
 
-/* Dock Navigation */
-.dock-nav {
-  display: flex;
-  gap: 6px;
-  background: var(--bg-glass);
-  backdrop-filter: blur(25px);
-  border: 1px solid var(--border-subtle);
-  padding: 6px;
-  border-radius: 100px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-.dock-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-family: inherit;
-  font-weight: 600;
-  font-size: 0.84rem;
-  padding: 8px 18px;
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.3s var(--ease-fluid);
-}
-.dock-btn:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.05);
-}
-.dock-btn.active {
-  background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(121, 40, 202, 0.3));
-  border: 1px solid var(--border-glow);
-  color: #fff;
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
-}
+  // 5. Magnetic Physics on Buttons
+  const magneticButtons = document.querySelectorAll(".btn-magnetic");
+  magneticButtons.forEach((btn) => {
+    btn.addEventListener("mousemove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.28}px, ${y * 0.28}px)`;
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "translate(0px, 0px)";
+    });
+  });
 
-/* ==========================================================================
-   SUPER-TIER BUTTON INTERACTIONS (HOLOGRAM & BEAM)
-   ========================================================================== */
-.btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: inherit;
-  font-weight: 600;
-  font-size: 0.88rem;
-  border-radius: 12px;
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-  transition: transform 0.3s var(--ease-elastic), box-shadow 0.3s ease;
-}
+  // 6. Typing Ticker Animation
+  const focusPhrases = [
+    "Google Search & Performance Max PPC",
+    "Meta Ads Acquisition & Retargeting",
+    "B.Com Financial & Margin Modeling",
+    "Organic SEO Keyword Authority",
+    "Conversion Rate Optimization (CRO)"
+  ];
+  const tickerEl = document.getElementById("tickerText");
+  let phraseIdx = 0, charIdx = 0, isDeleting = false;
 
-/* 1. Holographic Beam Light Edge Button */
-.btn-hologram {
-  background: #090d16;
-  color: #fff;
-  padding: 2px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
-}
-.btn-hologram .beam {
-  position: absolute;
-  inset: -150%;
-  background: conic-gradient(from 0deg, transparent 0%, var(--neon-cyan) 25%, var(--neon-purple) 50%, transparent 75%);
-  animation: beamSpin 3s linear infinite;
-  z-index: 0;
-}
-.btn-hologram .btn-content {
-  position: relative;
-  background: #0c1220;
-  padding: 10px 22px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  transition: background 0.3s;
-}
-.btn-hologram:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(0, 242, 254, 0.4), 0 0 20px rgba(121, 40, 202, 0.4);
-}
-.btn-hologram:hover .btn-content {
-  background: #121b30;
-}
+  function runTicker() {
+    const phrase = focusPhrases[phraseIdx];
+    if (isDeleting) {
+      tickerEl.textContent = phrase.substring(0, charIdx - 1);
+      charIdx--;
+    } else {
+      tickerEl.textContent = phrase.substring(0, charIdx + 1);
+      charIdx++;
+    }
 
-/* 2. Glass Cyber Button */
-.btn-glass {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  color: #fff;
-  padding: 11px 22px;
-  backdrop-filter: blur(12px);
-}
-.btn-glass:hover {
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-  transform: translateY(-3px);
-}
+    let speed = isDeleting ? 30 : 65;
+    if (!isDeleting && charIdx === phrase.length) {
+      speed = 1700;
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      phraseIdx = (phraseIdx + 1) % focusPhrases.length;
+      speed = 200;
+    }
+    setTimeout(runTicker, speed);
+  }
+  runTicker();
 
-/* 3. Outline Button */
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  padding: 11px 22px;
-}
-.btn-outline:hover {
-  color: #fff;
-  border-color: var(--text-pure);
-  transform: translateY(-3px);
-}
+  // 7. Interactive Live ROAS Simulator Engine
+  const adBudgetInput = document.getElementById("adBudget");
+  const targetRoasInput = document.getElementById("targetRoas");
+  const profitMarginInput = document.getElementById("profitMargin");
 
-.btn-submit { width: 100%; }
+  const budgetDisplay = document.getElementById("budgetDisplay");
+  const roasDisplay = document.getElementById("roasDisplay");
+  const marginDisplay = document.getElementById("marginDisplay");
 
-@keyframes beamSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  const grossRevenueEl = document.getElementById("grossRevenue");
+  const netProfitEl = document.getElementById("netProfit");
+  const poasMetricEl = document.getElementById("poasMetric");
 
-/* ==========================================================================
-   STAGE VIEWS (ZERO-SCROLL PAGE PANES)
-   ========================================================================== */
-.cockpit-stage {
-  position: relative;
-  flex: 1;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+  function calculateSimulator() {
+    const budget = parseFloat(adBudgetInput.value);
+    const roas = parseFloat(targetRoasInput.value);
+    const margin = parseFloat(profitMarginInput.value) / 100;
 
-.stage-view {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: none;
-  opacity: 0;
-  transform: scale(0.97) translateY(12px);
-  transition: opacity 0.45s var(--ease-fluid), transform 0.45s var(--ease-fluid);
-}
-.stage-view.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
+    budgetDisplay.textContent = `$${budget.toLocaleString()}`;
+    roasDisplay.textContent = `${roas.toFixed(1)}x`;
+    marginDisplay.textContent = `${(margin * 100).toFixed(0)}%`;
 
-.view-grid {
-  width: 100%;
-  max-width: 1220px;
-  max-height: 100%;
-}
+    const grossRevenue = budget * roas;
+    const grossProfit = grossRevenue * margin;
+    const netProfit = grossProfit - budget;
+    const poas = budget > 0 ? (grossProfit / budget) : 0;
 
-.section-titlebar {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.sub-badge {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--neon-cyan);
-  background: rgba(0, 242, 254, 0.1);
-  border: 1px solid rgba(0, 242, 254, 0.25);
-  padding: 3px 10px;
-  border-radius: 100px;
-  letter-spacing: 1.5px;
-}
-.section-titlebar h2 {
-  font-family: var(--font-display);
-  font-size: 1.95rem;
-  margin: 6px 0;
-}
-.section-titlebar p {
-  color: var(--text-muted);
-  font-size: 0.88rem;
-}
+    grossRevenueEl.textContent = `$${Math.round(grossRevenue).toLocaleString()}`;
+    netProfitEl.textContent = `${netProfit >= 0 ? "$" : "-$"}${Math.abs(Math.round(netProfit)).toLocaleString()}`;
+    poasMetricEl.textContent = `${poas.toFixed(2)}x`;
+  }
 
-/* ==========================================================================
-   PAGE 1: OVERVIEW HERO
-   ========================================================================== */
-.hero-layout {
-  display: grid;
-  grid-template-columns: 1.35fr 0.65fr;
-  gap: 30px;
-  align-items: center;
-}
+  [adBudgetInput, targetRoasInput, profitMarginInput].forEach((input) => {
+    input.addEventListener("input", calculateSimulator);
+  });
+  calculateSimulator();
 
-.cyber-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 100px;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  font-size: 0.78rem;
-  font-family: var(--font-mono);
-  color: #6ee7b7;
-  margin-bottom: 14px;
-}
-
-.hero-heading {
-  font-family: var(--font-display);
-  font-size: clamp(2.1rem, 3.6vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -1px;
-  margin-bottom: 14px;
-}
-.gradient-text {
-  background: linear-gradient(135deg, var(--neon-cyan), #a78bfa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.hero-description {
-  font-size: 1.02rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  margin-bottom: 18px;
-}
-
-.terminal-ticker {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid var(--border-subtle);
-  padding: 8px 16px;
-  border-radius: 8px;
-  display: inline-block;
-  margin-bottom: 22px;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-}
-.ticker-label { color: var(--neon-cyan); }
-.ticker-text { color: var(--neon-gold); font-weight: 600; }
-.cursor-pipe { animation: blink 1s infinite; }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-.hero-actions { display: flex; gap: 12px; }
-
-.hero-secondary { display: flex; flex-direction: column; gap: 14px; }
-.metric-glass-card {
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 18px;
-  padding: 18px 22px;
-  backdrop-filter: blur(15px);
-  transition: all 0.3s;
-}
-.metric-glass-card:hover {
-  border-color: var(--border-glow);
-  transform: translateX(6px);
-}
-.metric-row { display: flex; align-items: center; gap: 16px; }
-.metric-icon-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  font-size: 1.3rem;
-  background: rgba(255, 255, 255, 0.04);
-}
-.metric-glass-card h2 {
-  font-family: var(--font-display);
-  font-size: 2.1rem;
-  font-weight: 700;
-  display: inline;
-}
-.metric-sym { font-size: 1.4rem; color: var(--neon-cyan); font-weight: 700; }
-.metric-glass-card p { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
-
-/* Color classes */
-.icon-emerald { color: var(--neon-emerald); }
-.icon-cyan { color: var(--neon-cyan); }
-.icon-gold { color: var(--neon-gold); }
-.icon-blue { color: var(--neon-blue); }
-.icon-purple { color: var(--neon-purple); }
-.icon-pink { color: #ec4899; }
-.icon-orange { color: #f97316; }
-
-/* ==========================================================================
-   PAGE 2: SKILLS MATRIX (3-COL CARDS)
-   ========================================================================== */
-.cards-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.tactical-card {
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 18px;
-  padding: 20px;
-  backdrop-filter: blur(15px);
-  transition: all 0.3s;
-}
-.tactical-card:hover {
-  border-color: var(--neon-cyan);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 242, 254, 0.15);
-}
-.card-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-.brand-icon { font-size: 1.8rem; }
-.level-pill {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  color: var(--neon-cyan);
-}
-.tactical-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
-.tactical-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; }
-.tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
-.tag-row span {
-  font-size: 0.7rem;
-  background: rgba(255, 255, 255, 0.04);
-  padding: 2px 8px;
-  border-radius: 4px;
-  color: #cbd5e1;
-}
-
-/* ==========================================================================
-   PAGE 3: B.COM COMMERCE & FINANCIALS
-   ========================================================================== */
-.commerce-layout-split {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 20px;
-}
-.degree-hero-panel {
-  position: relative;
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 20px;
-  padding: 26px;
-  overflow: hidden;
-}
-.degree-hero-panel .degree-badge-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-  display: grid;
-  place-items: center;
-  font-size: 1.4rem;
-  margin-bottom: 14px;
-}
-.degree-hero-panel h2 { font-size: 1.4rem; margin: 4px 0; }
-.degree-highlight { color: var(--neon-cyan); font-weight: 600; font-size: 0.85rem; margin-bottom: 10px; }
-.degree-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
-.commerce-checks { display: flex; flex-direction: column; gap: 8px; }
-.commerce-checks div { font-size: 0.84rem; display: flex; align-items: center; gap: 10px; color: #e2e8f0; }
-.commerce-checks i { color: var(--neon-emerald); }
-
-.analytics-power-grid { display: flex; flex-direction: column; gap: 10px; }
-.power-card {
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 12px 18px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: transform 0.2s;
-}
-.power-card:hover { transform: translateX(6px); border-color: var(--neon-cyan); }
-.power-card i { font-size: 1.6rem; }
-.power-card h4 { font-size: 0.92rem; }
-.power-card p { font-size: 0.78rem; color: var(--text-muted); }
-
-/* ==========================================================================
-   PAGE 4: INTERACTIVE LIVE ROI SIMULATOR
-   ========================================================================== */
-.calculator-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 20px;
-  padding: 30px;
-}
-.calc-inputs { display: flex; flex-direction: column; gap: 20px; }
-.calc-group { display: flex; flex-direction: column; gap: 8px; }
-.calc-labels { display: flex; justify-content: space-between; font-size: 0.88rem; }
-.calc-val { color: var(--neon-cyan); font-family: var(--font-mono); font-weight: 700; }
-
-input[type="range"] {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  outline: none;
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--neon-cyan);
-  cursor: pointer;
-  box-shadow: 0 0 10px var(--neon-cyan);
-}
-
-.calc-results {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  justify-content: center;
-}
-.result-box {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 14px 18px;
-}
-.result-box span { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 1px; font-family: var(--font-mono); }
-.result-box h3 { font-family: var(--font-display); font-size: 1.6rem; color: #fff; margin-top: 4px; }
-.highlight-box {
-  border-color: var(--neon-emerald);
-  background: rgba(16, 185, 129, 0.08);
-}
-.highlight-box h3 { color: var(--neon-emerald); }
-
-/* ==========================================================================
-   PAGE 5: CASE STUDIES
-   ========================================================================== */
-.case-card {
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 18px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s;
-}
-.case-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--neon-cyan);
-}
-.case-badge {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--neon-cyan);
-  background: rgba(0, 242, 254, 0.1);
-  padding: 3px 8px;
-  border-radius: 6px;
-  width: fit-content;
-  margin-bottom: 10px;
-}
-.case-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
-.case-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px; flex-grow: 1; line-height: 1.5; }
-.kpi-banner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid var(--neon-emerald);
-  padding: 8px 12px;
-  border-radius: 0 8px 8px 0;
-  margin-bottom: 12px;
-}
-.kpi-banner i { font-size: 1.4rem; color: var(--neon-emerald); }
-.kpi-banner strong { font-size: 0.95rem; display: block; }
-.kpi-banner small { font-size: 0.72rem; color: var(--text-dim); }
-
-/* ==========================================================================
-   PAGE 6: CONTACT TERMINAL
-   ========================================================================== */
-.contact-layout-split {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 30px;
-}
-.contact-card-info h2 { font-size: 1.7rem; margin: 8px 0; }
-.contact-card-info p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px; line-height: 1.5; }
-.contact-links { display: flex; flex-direction: column; gap: 10px; }
-.link-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-subtle);
-  padding: 10px 16px;
-  border-radius: 12px;
-}
-.link-item i { font-size: 1.3rem; }
-.link-item small { font-size: 0.72rem; color: var(--text-dim); display: block; }
-.link-item strong { font-size: 0.85rem; }
-
-.terminal-form { display: flex; flex-direction: column; gap: 12px; }
-.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.field-box { display: flex; flex-direction: column; gap: 4px; }
-.field-box label { font-size: 0.78rem; color: var(--text-muted); }
-.field-box input, .field-box select, .field-box textarea {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--border-subtle);
-  padding: 10px 14px;
-  border-radius: 10px;
-  color: #fff;
-  font-family: inherit;
-  font-size: 0.85rem;
-  outline: none;
-  transition: 0.3s;
-}
-.field-box input:focus, .field-box select:focus, .field-box textarea:focus {
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-}
-
-/* ==========================================================================
-   TELEMETRY FOOTER
-   ========================================================================== */
-.cockpit-footer {
-  height: 38px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--bg-glass);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 0 18px;
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  font-family: var(--font-mono);
-}
-.radar-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--neon-emerald);
-  box-shadow: 0 0 8px var(--neon-emerald);
-  display: inline-block;
-  margin-right: 6px;
-}
-
-/* Mobile & Tablet Fallback */
-@media (max-width: 950px) {
-  html, body { overflow-y: auto; height: auto; }
-  .cockpit-container { height: auto; padding: 14px; }
-  .dock-nav { display: none; }
-  .hero-layout, .commerce-layout-split, .contact-layout-split, .calculator-container { grid-template-columns: 1fr; }
-  .cards-grid-3 { grid-template-columns: 1fr; }
-  .cockpit-stage { min-height: 80vh; }
-  .stage-view { position: relative; }
-}
+  // 8. Number Counters
+  const counters = document.querySelectorAll(".counter");
+  counters.forEach((c) => {
+    const target = +c.getAttribute("data-target");
+    let current = 0;
+    const step = target / 35;
+    const update = () => {
+      current += step;
+      if (current < target) {
+        c.textContent = current.toFixed(target % 1 !== 0 ? 1 : 0);
+        setTimeout(update, 30);
+      } else {
+        c.textContent = target;
+      }
+    };
+    update();
+  });
+});
